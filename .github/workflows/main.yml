@@ -1,0 +1,61 @@
+name: clone
+
+on:
+  schedule:
+    - cron: 1 1 1 1 1
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - userName: RedLightsDistrict
+            repoName: Bncr_plugins
+            branchName: main
+          - userName: Yuheng0101
+            repoName: Bncr_plugins
+            branchName: main
+    steps:
+      - name: Checkout master
+        uses: actions/checkout@master
+      - name: Check New Commit
+        run: |
+          upStream=https://github.com/${{ matrix.userName }}/${{ matrix.repoName }}
+          echo "upStream=$upStream" >> $GITHUB_ENV
+          commit=$(curl -sL $upStream/commits/${{ matrix.branchName }} |grep -o "/${{ matrix.userName }}/${{ matrix.repoName }}/commit/[a-z0-9]\+" |head -1 | cut -d\/ -f5)
+          if ! grep -q "$commit" README.md || [ "${{ inputs.rebuild }}" == "true" ]; then
+            echo "commit=$commit" >> $GITHUB_ENV
+            echo "commitS=${commit:0:7}" >> $GITHUB_ENV
+          fi
+      - name: Post To Telegram
+        if: ${{ env.commit }}
+        working-directory: Bncr_plugins
+        run: |
+          if [ -n "${{ secrets.CHANNEL_ID }}" ] && [ -n "${{ secrets.BOT_TOKEN }}" ]; then
+            curl -v "https://api.telegram.org/bot${{ secrets.BOT_TOKEN }}/sendMediaGroup?chat_id=${{ secrets.CHANNEL_ID }}&media=%5B%7B%22type%22%3A%22document%22%2C%20%22media%22%3A%22attach%3A%2F%2FappRelease%22%7D%2C%7B%22type%22%3A%22document%22%2C%20%22media%22%3A%22attach%3A%2F%2FsourceCode%22%2C%20%22caption%22%3A%22${ESCAPED}%22%7D%5D" -F appRelease="@$appRelease" -F sourceCode="@$sourceCode"
+            else
+              curl -v "https://api.telegram.org/bot${{ secrets.BOT_TOKEN }}/sendMediaGroup?chat_id=${{ secrets.CHANNEL_ID }}&media=%5B%7B%22type%22%3A%22document%22%2C%20%22media%22%3A%22attach%3A%2F%2FappRelease%22%2C%20%22caption%22%3A%22${ESCAPED}%22%7D%5D" -F appRelease="@$appRelease"
+          fi
+      - name: Push to master
+        if: ${{ env.commit }}
+        run: |
+          curl -O https://github.com/Yuheng0101/Bncr_plugins/raw/main/影视搜索.js
+          curl -O https://github.com/Yuheng0101/Bncr_plugins/raw/main/汇总.js
+          curl -O https://github.com/Yuheng0101/Bncr_plugins/raw/main/汇总.js
+          curl -O https://github.com/RedLightsDistrict/Bncr_plugins/raw/main/Bncr_SPY.js
+          curl -O https://github.com/RedLightsDistrict/Bncr_plugins/raw/main/京东口令解析url.js
+          curl -O https://github.com/RedLightsDistrict/Bncr_plugins/raw/main/奶酪.js
+          curl -O https://github.com/RedLightsDistrict/Bncr_plugins/raw/main/查询.js
+          curl -O https://github.com/RedLightsDistrict/Bncr_plugins/raw/main/消息转发.js
+          curl -O https://github.com/RedLightsDistrict/Bncr_plugins/raw/main/登录.js
+          curl -O https://github.com/RedLightsDistrict/Bncr_plugins/raw/main/自建sign.js
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url --add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+          git pull --rebase
+          sed -i "/${{ matrix.userName }}\/${{ matrix.repoName }}/s#Updated: [a-zA-Z0-9]*#Updated: ${{ env.commit }}#" README.md
+          git add --all
+          git commit -m "${{ env.commit }}"
+          git push -u -f origin master      
