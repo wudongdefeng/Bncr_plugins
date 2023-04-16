@@ -50,4 +50,4 @@ jobs:
           sed -i "/${{ matrix.userName }}\/${{ matrix.repoName }}/s#Updated: [a-zA-Z0-9]*#Updated: ${{ env.commit }}#" README.md
           git add --all
           git commit -m "${{ env.commit }}"
-          git push -u -f origin master      
+          git push -u -f origin main     
