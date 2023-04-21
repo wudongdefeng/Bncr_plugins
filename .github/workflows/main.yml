@@ -7,31 +7,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - userName: RedLightsDistrict
-            repoName: Bncr_plugins
-            branchName: main
-          - userName: Yuheng0101
-            repoName: Bncr_plugins
-            branchName: main
     steps:
       - name: Checkout master
         uses: actions/checkout@master
-      - name: Check New Commit
-        run: |
-          upStream=https://github.com/${{ matrix.userName }}/${{ matrix.repoName }}
-          echo "upStream=$upStream" >> $GITHUB_ENV
-          commit=$(curl -sL $upStream/commits/${{ matrix.branchName }} |grep -o "/${{ matrix.userName }}/${{ matrix.repoName }}/commit/[a-z0-9]\+" |head -1 | cut -d\/ -f5)
-          if ! grep -q "$commit" README.md || [ "${{ inputs.rebuild }}" == "true" ]; then
-            echo "commit=$commit" >> $GITHUB_ENV
-            echo "commitS=${commit:0:7}" >> $GITHUB_ENV
-          fi
+      
 
       - name: Push to master
-        if: ${{ env.commit }}
         run: |
           curl -O https://raw.githubusercontent.com/Yuheng0101/Bncr_plugins/main/影视搜索.js
           curl -O https://raw.githubusercontent.com/Yuheng0101/Bncr_plugins/main/汇总.js
