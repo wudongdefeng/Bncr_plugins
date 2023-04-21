@@ -49,5 +49,5 @@ jobs:
           git pull --rebase
           sed -i "/${{ matrix.userName }}\/${{ matrix.repoName }}/s#Updated: [a-zA-Z0-9]*#Updated: ${{ env.commit }}#" README.md
           git add .
-          git commit -m "${{ env.commit }}"
+          git commit -m "${{ env.commit }}" || echo "no change"
           git push -u origin main
