@@ -26,8 +26,7 @@ jobs:
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/自建sign.js
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git remote set-url --add origin "https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"     
           
           git add .
-          git commit -m "${{ env.commit }}" || echo "no change"
+          git commit -m "$time" || echo "no change"
           git push -u origin main
