@@ -43,14 +43,12 @@ jobs:
           curl -O https://github.com/RedLightsDistrict/Bncr_plugins/raw/main/消息转发.js
           curl -O https://github.com/RedLightsDistrict/Bncr_plugins/raw/main/登录.js
           curl -O https://github.com/RedLightsDistrict/Bncr_plugins/raw/main/自建sign.js
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-
+          git config --global credential.helper store
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          
+       
           sed -i "/${{ matrix.userName }}\/${{ matrix.repoName }}/s#Updated: [a-zA-Z0-9]*#Updated: ${{ env.commit }}#" README.md
-          git add --all
+          git add .
           git commit -m "${{ env.commit }}"
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.USER_TOKEN }}
-          branch: ${{ github.ref }}
+          git push -u origin main
