@@ -31,10 +31,10 @@ jobs:
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/AmTool.js || echo "已删除"
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/CryptoJS.js || echo "已删除"
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/USER_AGENTS.js || echo "已删除"
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyValueChange.js || echo "已删除"
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyHandleMsg.js || echo "已删除"
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyHandleMsg.js || echo "已删除"
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyConfig.js || echo "已删除"                      
+          #curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyValueChange.js || echo "已删除"
+          #curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyHandleMsg.js || echo "已删除"
+          #curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyHandleMsg.js || echo "已删除"
+          #curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyConfig.js || echo "已删除"                      
           cd ..
           git add .
           git commit -m "updated" || echo "no change"
