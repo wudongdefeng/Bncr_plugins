@@ -24,6 +24,7 @@ jobs:
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/消息转发.js || echo "已删除"
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/登录.js || echo "已删除"
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/自建sign.js || echo "已删除"
+          ls
           cd ./mod
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/AmQlMod.js || echo "已删除"
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/AmTool.js || echo "已删除"
