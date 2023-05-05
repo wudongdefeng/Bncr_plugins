@@ -37,5 +37,5 @@ jobs:
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyConfig.js || echo "已删除"                      
           cd ..
           git add .
-          git commit -m "$time" || echo "no change"
+          git commit -m "updated" || echo "no change"
           git push -u origin main
