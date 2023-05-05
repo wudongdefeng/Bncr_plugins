@@ -29,926 +29,537 @@ module.exports = async msg => {
     for (const link of [...urlArr, ...codeArr])
         urlToExport(link)?.forEach(e => (result += `export ${e.name}="${e.value}"\n`));
     /*
-    如果该导出的函数返回值不是一个string或不是一个 export格式的线报时,该msg会被放弃
+    如果该导出的函数返回值不是一个string或不是一个 export格式的线报时,该msg会被放弃 
     如果该模块中的代码报错 将强制返回空字符串
     */
     return result ? `外部模块解析结果:\n${result}` : '';
 };
 
-/**
- * @Description 解析列表 取于白眼
- * 修改记录
- *   版本号[1.0.1] 修订日期[2023/4/13 9:57 AM]  修改内容 [增加多变量解析参数注释]
- *     {
- * 			keyword:"https://lzkj-isv.isvjcloud.com/app?a=xxxxx&b=xxxxxx",
- * 			trans:[
- * 				{
- * 					ori: "a b", // 当多变量的时候按顺序填写需要在链接中提取的参数
- * 					redi: "key",
- * 					sep:"&" // 连接符  结果  export key="a&b"
- * 				}
- * 		},
- *
- */
+/* 解析列表 取于白眼*/
 function ListS() {
     return [
         /******************KR库********************** */
         {
             keyword: /cjhy(dz)?-isv\.isvjcloud\.com\/wxTeam\/activity/,
-            name: 'CJ组队瓜分',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_cjhy_activityId',
-                },
-            ],
+            name: "CJ组队瓜分",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_cjhy_activityId"
+            }]
         },
-
         {
             keyword: /lzkj(dz)?-isv\.isvj(clou)?d.com\/wxTeam\/activity/,
-            name: 'LZ组队瓜分',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_zdjr_activityId',
-                },
-            ],
+            name: "LZ组队瓜分",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_zdjr_activityId"
+            }]
         },
-
-        {
-            keyword: /cjhy(dz)?-isv\.isvjcloud\.com\/microDz\/invite\/activity/,
-            name: 'CJ微定制',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_wdz_activityId',
-                },
-            ],
-        },
-
         {
             keyword: /cjhy(dz)?-isv\.isvjcloud\.com\/microDz\/invite\/openLuckBag/,
-            name: 'CJ微定制福袋',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_wdzfd_activityId',
-                },
-            ],
-        },
-
-        {
-            keyword: /lzkj(dz)?-isv\.isvjcloud.com\/wxCollectCard/,
-            name: 'LZ集卡抽奖',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_wxCollectCard_activityId', //kr
-                },
-            ],
-        },
-
-        {
-            keyword: 'wxCollectionActivity/activity',
-            name: '加购有礼',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_wxCollectionActivity_activityUrl', //kr
-                },
-            ],
-        },
-        {
-            keyword: /wxDrawActivity|lzclient/,
-            name: '幸运抽奖',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'LUCK_DRAW_URL', //kr
-                },
-            ],
+            name: "CJ微定制福袋",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_wdzfd_activityId"
+            }]
         },
         {
             keyword: /lzkj(dz)?-isv\.isvj(clou)?d.com\/wxgame/,
-            name: 'LZ店铺游戏',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_wxgame_activityId', //kr
-                },
-            ],
+            name: "LZ店铺游戏",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_wxgame_activityId"//kr
+            }]
         },
-        {
-            keyword: /lzkj(dz)?-isv\.isvj(clou)?d\.com\/wxSecond/,
-            name: 'LZ读秒拼手速',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_wxSecond_activityId', //kr
-                },
-            ],
-        },
-
         {
             keyword: 'wxCartKoi/cartkoi',
-            name: 'LZ购物车锦鲤',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_wxCartKoi_activityId',
-                },
-            ],
+            name: "LZ购物车锦鲤",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_wxCartKoi_activityId"
+            }]
         },
-
-        {
-            keyword: 'wxShopFollowActivity',
-            name: '店铺关注有礼',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_wxShopFollowActivity_activityUrl',
-                },
-            ],
-        },
-
+/*        {
+            keyword: "wxShopFollowActivity",
+            name: "店铺关注有礼",
+            trans: [{
+                ori: "-1",
+                redi: "jd_wxShopFollowActivity_activityUrl"
+            }]
+        },   */   
         {
             keyword: /https:\/\/lzkj-isv.isvj(clou)?d.com\/drawCenter/,
-            name: 'LZ刮刮乐',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_drawCenter_activityId',
-                },
-            ],
+            name: "LZ刮刮乐",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_drawCenter_activityId"
+            }]
         },
-
         {
             keyword: /lzkjdz-isv.isvj(clou)?d.com\/wxFansInterActionActivity/,
-            name: 'LZ粉丝互动',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_wxFansInterActionActivity_activityId',
-                },
-            ],
+            name: "LZ粉丝互动",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_wxFansInterActionActivity_activityId"
+            }]
         },
-
         {
-            keyword: /lzkj(dz)?-isv.isvj(clou)?d.com\/wxShareActivity/,
-            name: 'LZ分享有礼',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_wxShareActivity_activityId',
-                },
-            ],
-        },
-
-        {
-            keyword: 'https://jdjoy.jd.com/module/task/v2/doTask',
-            name: 'JoyJD任务',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'comm_activityIDList',
-                },
-            ],
-        },
-
-        {
-            keyword: 'https://cjhy-isv.isvjcloud.com/sign/signActivity',
-            name: 'CJ超级店铺无线签到',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'CJHY_SIGN',
-                },
-            ],
+            keyword: "https://cjhy-isv.isvjcloud.com/sign/signActivity",
+            name: "CJ超级店铺无线签到",
+            trans: [{
+                ori: "activityId",
+                redi: "CJHY_SIGN"
+            }]
         },
         {
             keyword: /cjhy-isv.isvj(clou)?d.com\/sign\/sevenDay\/signActivity/,
-            name: 'CJ超级店铺无线签到',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'CJHY_SEVENDAY',
-                },
-            ],
+            name: "CJ超级店铺无线签到",
+            trans: [{
+                ori: "activityId",
+                redi: "CJHY_SEVENDAY"
+            }]
         },
         {
             keyword: /lzkj-isv.isvj(clou)?d.com\/sign\/signActivity/,
-            name: 'LZ超级店铺无线签到',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'LZKJ_SIGN',
-                },
-            ],
-        },
-        {
-            keyword: /lzkj-isv.isvj(clou)?d.com\/sign\/sevenDay/,
-            name: 'LZ超级店铺无线签到',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'LZKJ_SEVENDAY',
-                },
-            ],
-        },
-
-        {
-            keyword: /lzkjdz-isv.isvj(clou)?d.com\/wxUnPackingActivity/,
-            name: 'LZ让福袋飞',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_wxUnPackingActivity_activityId',
-                },
-            ],
-        },
-
-        {
-            keyword: 'https://cjhy-isv.isvjcloud.com/wx/completeInfoActivity/view/activity',
-            name: 'CJ完善信息有礼',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_completeInfoActivity_activityId',
-                },
-                {
-                    ori: 'venderId',
-                    redi: 'jd_completeInfoActivity_venderId',
-                },
-            ],
-        },
-
-        {
-            keyword: 'https://cjhy-isv.isvjcloud.com/mc/wxMcLevelAndBirthGifts/activity',
-            name: 'CJ生日礼包和会员等级礼包',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_wxMcLevelAndBirthGifts_activityId',
-                },
-            ],
-        },
-
-        {
-            keyword: /https:\/\/lzkj-isv.isvj(clou)?d.com\/wxBuildActivity/,
-            name: 'LZ盖楼有礼',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_wxBuildActivity_activityId', //kr
-                },
-            ],
-        },
-
-        {
-            keyword: /wxKnowledgeActivity/,
-            name: '知识超人',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_wxKnowledgeActivity_activityUrl', //KR
-                },
-            ],
-        },
-
-        {
-            keyword: 'https://cjhy-isv.isvjcloud.com/wxKnowledgeActivity/activity',
-            name: 'CJ知识超人',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_cjwxKnowledgeActivity_activityId', //kr
-                },
-            ],
-        },
-        {
-            keyword: 'https://cjhy-isv.isvjcloud.com/activity/daily/',
-            name: 'cjhy每日抢',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_cjdaily_activityId',
-                },
-            ],
-        },
-
-        {
-            keyword: /(lzkj-isv.isvj(clou)?d.com\/wxShopGift)|(cjhy-isv\.isvjcloud\.com\/wxShopGift)/,
-            name: '特效店铺有礼',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_wxShopGift_activityUrl', //kr
-                },
-            ],
-        },
-
-        {
-            keyword: 'https://txzj-isv.isvjcloud.com/cart_item',
-            name: '收藏大师-加购有礼',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_cart_item_activityUrl', //kr
-                },
-            ],
-        },
-        {
-            keyword: 'https://txzj-isv.isvjcloud.com/collect_item',
-            name: '收藏大师-关注有礼',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_collect_item_activityUrl', //kr
-                },
-            ],
-        },
-        {
-            keyword: 'https://txzj-isv.isvjcloud.com/collect_shop',
-            name: '收藏大师-关注商品',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_collect_shop_activityUrl', //kr
-                },
-            ],
-        },
-        {
-            keyword: 'https://txzj-isv.isvjcloud.com/lottery',
-            name: '收藏大师-幸运抽奖',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_lottery_activityUrl', //kr
-                },
-            ],
-        },
-
-        {
-            keyword: 'https://cjhy-isv.isvjcloud.com/wxInviteActivity/openCard/invitee',
-            name: 'CJ开卡入会有礼',
-            trans: [
-                {
-                    ori: 'venderId',
-                    redi: 'VENDER_ID',
-                },
-            ],
-        },
-
-        {
-            keyword: /pro(dev)?\.m\.jd\.com\/mall\/active\/dVF7gQUVKyUcuSsVhuya5d2XD4F/,
-            name: '邀好友赢大礼',
-            trans: [
-                {
-                    ori: 'code',
-                    redi: 'yhyauthorCode',
-                },
-            ],
-        },
-
-        {
-            keyword: 'https://jinggengjcq-isv.isvjcloud.com',
-            name: '大牌联合开卡',
-            trans: [
-                {
-                    ori: 'actId',
-                    redi: 'DPLHTY',
-                },
-            ],
-        },
-
-        {
-            keyword: 'https://mpdz-dz.isvjcloud.com',
-            name: '大牌联合开卡',
-            trans: [
-                {
-                    ori: 'actId',
-                    redi: 'DPLHTY',
-                },
-            ],
-        },
-
-        {
-            keyword: /jinggeng-isv\.isvj(clou)?d\.com\/ql\/front\/showInviteJoin/,
-            name: '邀请入会赢好礼 · 京耕',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_showInviteJoin_activityUrl', //kr
-                },
-            ],
-        },
-        {
-            keyword: /shop\.m\.jd.com\/shop\/lottery/,
-            name: '店铺刮刮乐',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_shopDraw_activityUrl', //kr
-                },
-            ],
-        },
-        {
-            keyword: /(interactsaas|interact)\/index\?activityType=(10006|10070)/,
-            name: '邀请入会有礼（lzkj_loreal）',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_lzkj_loreal_invite_url', //kr
-                },
-            ],
-        },
-        {
-            keyword: /interactsaas\/index\?activityType=(10020|10021|10026|10080)/,
-            name: '店铺抽奖（超级无线欧莱雅）',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_lzkj_loreal_draw_url', //kr
-                },
-            ],
-        },
-        {
-            keyword: /(interactsaas|interact)\/index\?activityType=10024/,
-            name: '加购有礼（超级无线欧莱雅）',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_lzkj_loreal_cart_url', //kr
-                },
-            ],
-        },
-        {
-            keyword: /(interactsaas|interact)\/index\?activityType=10069/,
-            name: '关注店铺有礼（超级无线欧莱雅',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_lzkj_loreal_followShop_url', //kr
-                },
-            ],
-        },
-
-        /*******************环境保护库********************** */
-        {
-            keyword: /cjhy(dz)?-isv\.isvjcloud\.com\/wxTeam\/activity/,
-            name: 'CJ组队瓜分',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_cjhydz_wxTeam_Id',
-                },
-            ],
-        },
-
-        {
-            keyword: /lzkj(dz)?-isv\.isvj(clou)?d.com\/wxTeam\/activity/,
-            name: 'LZ组队瓜分',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkjdz_wxTeam_Id',
-                },
-            ],
-        },
-
-        {
-            keyword: /cjhy(dz)?-isv\.isvjcloud\.com\/microDz\/invite\/activity/,
-            name: 'CJ微定制',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_cjhydz_microDz_Id',
-                },
-            ],
-        },
-
-        {
-            keyword: /cjhy(dz)?-isv\.isvjcloud\.com\/microDz\/invite\/openLuckBag/,
-            name: 'CJ微定制福袋',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_openLuckBag_Id',
-                },
-            ],
-        },
-        // {
-        // 	keyword: /https:\/\/lzkj-isv\.isvj(clou)?d\.com\/wxShopFollowActivity/,
-        // 	name: "LZ店铺关注抽奖",
-        // 	trans: [{
-        // 		ori: "activityId",
-        // 		redi: "jd_lzkj_wxShopFollowActivity_activityId"
-        // 	}]
-        // },
-        // {
-        // 	keyword: "https://cjhy-isv.isvjcloud.com/wxShopFollowActivity/activity",
-        // 	name: "CJ店铺关注抽奖",
-        // 	trans: [{
-        // 		ori: "activityId",
-        // 		redi: "jd_cjhy_wxShopFollowActivity_activityId"
-        // 	}]
-        // },
-
-        // {
-        // 	keyword: "https://lzkj-isv.isvjcloud.com/wxCollectionActivity/activity2",
-        // 	name: "LZ加购有礼",
-        // 	trans: [{
-        // 		ori: "activityId",
-        // 		redi: "jd_lzkj_wxCollectionActivityId"//环保
-        // 	}]
-        // },
-
-        // {
-        // 	keyword: "https://cjhy-isv.isvjcloud.com/wxCollectionActivity/activity",
-        // 	name: "CJ加购有礼",
-        // 	trans: [{
-        // 		ori: "activityId",
-        // 		redi: "jd_cjhy_wxCollectionActivityId"//环保
-        // 	}]
-        // },
-        // {
-        // 	keyword: /https:\/\/lzkj-isv\.isvj(cloud)?\.com\/lzclient/,
-        // 	name: "LZ幸运抽奖",
-        // 	trans: [{
-        // 		ori: "activityId",
-        // 		redi: "jd_lzkj_wxDrawActivity_Id"//环保
-        // 	}]
-        // },
-        // {
-        // 	keyword: "https://cjhy-isv.isvjcloud.com/wxDrawActivity/activity/",
-        // 	name: "CJ幸运抽奖",
-        // 	trans: [{
-        // 		ori: "activityId",
-        // 		redi: "jd_cjhy_wxDrawActivity_Id"//环保
-        // 	}]
-        // },
-        {
-            keyword: /lzkj-isv\.isvj(clou)?d\.com\/wxGameActivity/,
-            name: 'LZ游戏活动',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_wxGameActivity_activityId', //环保
-                },
-            ],
-        },
-        {
-            keyword: /lzkj-isv\.isvj(clou)?d.com\/wxgame/,
-            name: 'LZ游戏活动',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'WXGAME_ACT_ID', //环保
-                },
-            ],
-        },
-        {
-            keyword: 'https://cjhy-isv.isvjcloud.com/wxGameActivity/activity',
-            name: 'CJ游戏活动',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_cjhy_wxGameActivity_activityId', //环保
-                },
-            ],
-        },
-        {
-            keyword: 'https://lzkj-isv.isvjcloud.com/wxKnowledgeActivity/activity',
-            name: 'LZ知识超人',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_wxKnowledgeActivity_activityId', //环保
-                },
-            ],
-        },
-        {
-            keyword: 'https://cjhy-isv.isvjcloud.com/wxKnowledgeActivity/activity',
-            name: 'CJ知识超人',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_cjhy_wxKnowledgeActivity_activityId', //环保
-                },
-            ],
-        },
-
-        {
-            keyword: 'https://txzj-isv.isvjcloud.com/cart_item',
-            name: 'txzj加购有礼',
-            trans: [
-                {
-                    ori: 'a',
-                    redi: 'jd_txzj_cart_item_id',
-                },
-            ],
-        },
-        {
-            keyword: 'https://txzj-isv.isvjcloud.com/collect_item',
-            name: 'txzj关注有礼',
-            trans: [
-                {
-                    ori: 'a',
-                    redi: 'jd_txzj_collect_item_id',
-                },
-            ],
-        },
-        {
-            keyword: 'https://txzj-isv.isvjcloud.com/sign_in',
-            name: 'txzj签到',
-            trans: [
-                {
-                    ori: 'a',
-                    redi: 'jd_txzj_sign_in_id',
-                },
-            ],
-        },
-        {
-            keyword: 'https://txzj-isv.isvjcloud.com/lottery',
-            name: 'txzj抽奖',
-            trans: [
-                {
-                    ori: 'a',
-                    redi: 'jd_txzj_lottery_id',
-                },
-            ],
-        },
-
-        {
-            keyword: 'https://cjhy-isv.isvjcloud.com/activity/daily/',
-            name: 'cjhy每日抢',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_cjhy_daily_ids',
-                },
-            ],
-        },
-        {
-            keyword: 'https://cjhy-isv.isvjcloud.com/mc/wxMcLevelAndBirthGifts/activity',
-            name: 'CJ生日礼包和会员等级礼包',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_cjhy_wxMcLevelAndBirthGifts_ids',
-                },
-            ],
+            name: "LZ超级店铺无线签到",
+            trans: [{
+                ori: "activityId",
+                redi: "LZKJ_SIGN"
+            }]
         },
         {
             keyword: /(cjhy|lzkj)-isv\.isvj(clou)?d\.com\/sign/,
-            name: '超级店铺无线签到',
-            trans: [
-                {
-                    ori: '-1',
-                    redi: 'jd_sevenDay_activityUrl',
-                },
-            ],
-        },
-        {
-            keyword: /cjhy-isv\.isvjcloud\.com\/sign\/signActivity/,
-            name: 'CJ超级店铺无线签到',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_cjhy_signActivity_ids',
-                },
-            ],
-        },
-        {
-            keyword: /cjhy-isv.isvj(clou)?d.com\/sign\/sevenDay\/signActivity/,
-            name: 'CJ超级店铺无线签到',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_cjhy_sevenDay_ids',
-                },
-            ],
-        },
-        {
-            keyword: /lzkj-isv.isvj(clou)?d.com\/sign\/signActivity/,
-            name: 'LZ超级店铺无线签到',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_signActivity2_ids',
-                },
-            ],
+            name: "超级无线店铺签到-监控版",
+            trans: [{
+                ori: "-1",
+                redi: "jd_sevenDay_activityUrl"
+            }]
         },
         {
             keyword: /lzkj-isv.isvj(clou)?d.com\/sign\/sevenDay/,
-            name: 'LZ超级店铺无线签到',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_sevenDay_ids',
-                },
-            ],
+            name: "LZ超级店铺无线签到",
+            trans: [{
+                ori: "activityId",
+                redi: "LZKJ_SEVENDAY"
+            }]
         },
         {
-            keyword: /lzkj-isv.isvj(clou)?d.com\/wxBuildActivity/,
-            name: 'LZ盖楼有礼',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_wxBuildActivity_activityId',
-                },
-            ],
+            keyword: /lzkjdz-isv.isvj(clou)?d.com\/wxUnPackingActivity/,
+            name: "LZ让福袋飞",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_wxUnPackingActivity_activityId"
+            }]
         },
         {
-            keyword: /lzkj-isv\.isvj(clou)?d.com\/wxShopGift/,
-            name: 'lzkj店铺礼包',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_wxShopGift_ids',
-                },
-            ],
+            keyword: "https://cjhy-isv.isvjcloud.com/mc/wxMcLevelAndBirthGifts/activity",
+            name: "CJ生日礼包和会员等级礼包",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_wxMcLevelAndBirthGifts_activityId"
+            }]
         },
         {
-            keyword: /cjhy-isv\.isvjcloud\.com\/wxShopGift/,
-            name: 'cjhy店铺礼包',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_cjhy_wxShopGift_ids',
-                },
-            ],
+            keyword: /wxKnowledgeActivity/,
+            name: "知识超人",
+            trans: [{
+                ori: "-1",
+                redi: "jd_wxKnowledgeActivity_activityUrl"//KR
+            }]
         },
         {
-            keyword: /interact\/index\?activityType=10006/,
-            name: 'loreal邀请入会有礼',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_loreal_interact_yqrhyl_activityId',
-                },
-            ],
+            keyword: "https://cjhy-isv.isvjcloud.com/activity/daily/",
+            name: "cjhy每日抢",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_cjdaily_activityId"
+            }]
         },
         {
-            keyword: /interactsaas\/index\?activityType=10006/,
-            name: '邀请入会有礼',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_interactsaas_yqrhyl_activityId',
-                },
-            ],
+            keyword: "https://lzkj-isv.isvjd.com/activity/daily/",
+            name: "lzkj每日抢",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_daily_activityId"
+            }]
         },
         {
-            keyword: /interactsaas\/index\?activityType=10024/,
-            name: 'lzkj_interactsaas加购有礼',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_interactsaas_jgyl_activityId',
-                },
-            ],
+            keyword: "https://txzj-isv.isvjcloud.com/cart_item",
+            name: "收藏大师-加购有礼",
+            trans: [{
+                ori: "-1",
+                redi: "jd_cart_item_activityUrl"//kr
+            }]
         },
         {
-            keyword: /interactsaas\/index\?activityType=10069/,
-            name: 'lzkj_interactsaas关注店铺有礼',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_interactsaas_gzyl_activityId',
-                },
-            ],
+            keyword: "https://txzj-isv.isvjcloud.com/collect_item",
+            name: "收藏大师-关注有礼",
+            trans: [{
+                ori: "-1",
+                redi: "jd_collect_item_activityUrl"//kr
+            }]
         },
         {
-            keyword: /interactsaas\/index\?activityType=10053/,
-            name: 'lzkj_interactsaas关注商品有礼',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_interactsaas_gzspyl_activityId',
-                },
-            ],
+            keyword: "https://txzj-isv.isvjcloud.com/collect_shop",
+            name: "收藏大师-关注商品",
+            trans: [{
+                ori: "-1",
+                redi: "jd_collect_shop_activityUrl"//kr
+            }]
+        },
+        {
+            keyword: "https://txzj-isv.isvjcloud.com/lottery",
+            name: "收藏大师-幸运抽奖",
+            trans: [{
+                ori: "-1",
+                redi: "jd_lottery_activityUrl"//kr
+            }]
         },
 
-        /******************* 自定义 ********************* */
+        /*******************J********************** */  
         {
-            keyword: 'https://wqs.jd.com/promote/2023/spring2023/index.html',
-            name: '团团领红包助力【Doraemon】',
-            trans: [
-                {
-                    ori: 'shareId',
-                    redi: 'krtycode',
-                },
-            ],
+            keyword: /(interactsaas|interact)\/(index)?\?activityType=10023/,
+            name: "interactsaas日历签到",
+            trans: [{
+                ori: "-1",
+                redi: "INTERACT_SIGN_IDS"
+            }]
+        },
+        //{
+//            keyword: /(interactsaas|interact)\/(index)?\?activityType=10033/,
+//            name: "interactsaas组队",
+//            trans: [{
+//                ori: "-1",
+//                redi: "M_WX_TEAM_URL"
+//            }]
+//        },
+//        {
+//            keyword: /(interactsaas|interact)\/(index)?\?activityType=10039/,
+//            name: "interactsaas知识",
+//            trans: [{
+//                ori: "-1",
+//                redi: "M_WX_KNOWLEDGE_URL"
+//            }]
+//        },
+//        {
+//            keyword: /(interactsaas|interact)\/(index)?\?activityType=10043/,
+//            name: "interactsaas分享",
+//            trans: [{
+//                ori: "-1",
+//                redi: "M_WX_SHARE_URL"
+//            }]
+//        },
+//        {
+//            keyword: /(interactsaas|interact)\/(index)?\?activityType=10068/,
+//            name: "interactsaas邀关",
+//            trans: [{
+//                ori: "-1",
+//                redi: "INVITE_FOLLOW_SHOP_URL"
+//            }]
+//        },
+//        {
+//            keyword: /(interactsaas|interact)\/(index)?\?activityType=10069/,
+//            name: "interactsaas关注",
+//            trans: [{
+//                ori: "-1",
+//                redi: "M_WX_FOLLOW_DRAW_URL"
+//            }]
+//        },
+//        {
+//            keyword: /(interactsaas|interact)\/(index)?\?activityType=(10082|10084|10089|10091|10095)/,
+//            name: "interactsaas游戏",
+//            trans: [{
+//                ori: "-1",
+//                redi: "GAME_LUCK_DRAW_URL"
+//            }]
+//        },
+//        {
+//            keyword: /wxInviteActivity\/openCard/,
+//            name: "WX邀请入会",
+//            trans: [{
+//                ori: "-1",
+//                redi: "WX_INVITE_OPENCARD_URL"
+//            }]
+//        },
+//
+        /*******************walle库********************* */
+        {
+            keyword:  /(interactsaas|interact)\/(index)?\?activityType=(10006|10070)/,
+            name: "M邀请有礼INTERACT",
+            trans: [{
+                ori: "-1",
+                redi: "M_INTERACT_INVITE_URL"//wall
+            }]
         },
         {
-            keyword: 'https://lzdz-isv.isvjd.com/categoryUnion/categoryUnionActivity/',
-            name: '品类联合【Doraemon】',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_categoryUnion_activityId',
-                },
-            ],
+            keyword: /jinggeng-isv\.isvj(clou)?d\.com\/ql\/front\/showInviteJoin/,
+            name: "M邀请有礼",
+            trans: [{
+                ori: "-1",
+                redi: "M_JINGGENG_INVITE_URL",
+            }]
+        }, 
+        {
+            keyword:  /(interactsaas|interact)\/(index)?\?activityType=10036/,
+            name: "M购物车锦鲤",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_CARTKOI_URL"//wall
+            }]
         },
         {
-            keyword: /interactsaas\/\?activityType=10024/,
-            name: 'lzkj_interactsaas加购有礼【Doraemon】',
-            trans: [
+            keyword:  /wxgame\/activity/,
+            name: "M打豆豆",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_DADOUDOU_URL"//wall
+            }]
+        },
+        {
+            keyword:  /wxGameActivity/,
+            name: "M无线游戏",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_GAME_URL"//wall
+            }]
+        },
+        {
+            keyword: /wxSecond/,
+            name: "M读秒手速",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_SECOND_DRAW_URL"
+            }]
+        },
+        {
+            keyword: /wxShareActivity/,
+            name: "M分享有礼",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_SHARE_URL"//wall
+            }]
+        },
+        {
+            keyword: /wxBuildActivity/,
+            name: "M盖楼领奖",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_BUILD_DRAW_URL"
+            }]
+        },
+        {
+            keyword: /(interactsaas|interact)\/(index)?\?activityType=(10053|10069)/,
+            name: "M关注抽奖",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_FOLLOW_DRAW_URL"
+            }]
+        },
+        {
+            keyword: "wxShopFollowActivity/activity",
+            name: "M关注抽奖",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_FOLLOW_DRAW_URL"
+            }]
+        },
+        {
+            keyword: /wxCollectCard/,
+            name: "M集卡抽奖",
+            trans: [{
+                ori: -1,
+                redi: "M_WX_COLLECT_CARD_URL"//wall
+            }]
+        },
+        {
+            keyword: /wxCollectionActivity/,
+            name: "M加购有礼",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_ADD_CART_URL"//wall
+            }]
+        },
+        {
+            keyword: /(interactsaas|interact)\/(index)?\?activityType=10024/,
+            name: "M加购有礼",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_ADD_CART_URL"//wall
+            }]
+        },
+        {
+            keyword: /cjhy-isv\.isvjcloud\.com\/wx\/completeInfoActivity/,
+            name: "M完善有礼",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_COMPLETE_DRAW_URL"
+            }]
+        },
+        {
+            keyword: /(interactsaas|interact)\/(index)?\?activityType=10049/,
+            name: "M完善有礼",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_COMPLETE_DRAW_URL"
+            }]
+        },
+        {
+            keyword: "wxDrawActivity/activity",
+            name: "M幸运抽奖",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_LUCK_DRAW_URL"//wall
+            }]
+        },
+        {
+            keyword: "lzkj-isv.isvjcloud.com/lzclient",
+            name: "M幸运抽奖",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_LUCK_DRAW_URL"//wall
+            }]
+        },
+        {
+            keyword: /(interactsaas|interact)\/(index)?\?activityType=(10020|10021|10026|10031|10046|10063|10073|10080)/,
+            name: "M幸运抽奖",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_LUCK_DRAW_URL"//wall
+            }]
+        },
                 {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_interactsaas_jgyl_activityId',
-                },
-            ],
+            keyword: "https://gzsl-isv.isvjcloud.com/wuxian/mobileForApp/dist2/views/pages",
+            name: "M幸运抽奖",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_LUCK_DRAW_URL"//wall
+            }]
+        },
+        {
+            keyword: /cjhy(dz)?-isv\.isvj(clou)?d\.com\/wxTeam\/activity/,
+            name: "M组队瓜分",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_TEAM_URL"//wall
+            }]
+        },
+        {
+            keyword: /lzkj(dz)?-isv\.isvj(clou)?d\.com\/wxTeam\/activity/,
+            name: "M组队瓜分",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_TEAM_URL"//wall
+            }]
         },
 
-        // lzkj_interactsaas日历签到
         {
-            keyword: /interactsaas\/index\?activityType=10023/,
-            name: 'lzkj_interactsaas日历签到【Doraemon】',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_interactsaas_rlqd_Ids',
-                },
-            ],
+            keyword: /drawCenter/,
+            name: "M老虎机抽奖",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_CENTER_DRAW_URL"
+            }]
         },
         {
-            keyword: /interactsaas\/\?activityType=10023/,
-            name: 'lzkj_interactsaas日历签到【Doraemon】',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_interactsaas_rlqd_Ids',
-                },
-            ],
-        },
-
-        // lzkj_interactsaas签到
-        {
-            keyword: /interactsaas\/index\?activityType=10040/,
-            name: 'lzkj_interactsaas签到【Doraemon】',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_interactsaas_qrqd_Ids',
-                },
-            ],
+            keyword: /wxMcLevelAndBirthGifts/,
+            name: "M等级/生日礼包",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_LEVEL_BIRTH_URL"
+            }]
         },
         {
-            keyword: /interactsaas\/\?activityType=10040/,
-            name: 'lzkj_interactsaas签到【Doraemon】',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_interactsaas_qrqd_Ids',
-                },
-            ],
+            keyword: /wxPointShopView/,
+            name: "积分兑换",
+            trans: [{
+                ori: "-1",
+                redi: "POINT_EXCHANGE_URL"
+            }]
+        },        
+        {
+            keyword: /wxShopGift/,
+            name: "M关注有礼无线",
+            trans: [{
+                ori: "-1",
+                redi: "M_WX_SHOP_GIFT_URL"
+            }]
         },
 
-        // loreal_interact签到
+        
         {
-            keyword: /interactsaas\/index\?activityType=10001/,
-            name: 'loreal_interact签到【Doraemon】',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_loreal_interact_ljqdysl_Ids',
-                },
-            ],
+            keyword: /jinggeng-isv\.isvj(clou)?d\.com\/ql\/front\/showInviteJoin/,
+            name: "（船长）邀请入会赢好礼·京耕",
+            trans: [{
+                ori: "id user_id",
+                redi: "jinggengInviteJoin",
+                sep: "&"//船长
+            }]
+        }, 
+        {
+            keyword: /cjhy(dz)?-isv\.isvjcloud\.com\/microDz\/invite\/activity/,
+            name: "（船长）微定制组队瓜分",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_wdz_activityId"//船长
+            }]
         },
         {
-            keyword: /interactsaas\/\?activityType=10001/,
-            name: 'loreal_interact签到【Doraemon】',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_loreal_interact_ljqdysl_Ids',
-                },
-            ],
-        },
-
-        // loreal_interact  10047
+            keyword: /pro(dev)?\.m\.jd\.com\/mall\/active\/dVF7gQUVKyUcuSsVhuya5d2XD4F/,
+            name: "（船长）邀好友赢大礼",
+            trans: [{
+                ori: "code",
+                redi: "jd_inv_authorCode"//船长
+            }]
+        },  
         {
-            keyword: /interactsaas\/index\?activityType=10047/,
-            name: 'lzkj_interactsaas盖楼有礼【Doraemon】',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_interactsaas_glyl_Ids',
-                },
-            ],
+            keyword: /shop\.m\.jd\.com\/shop\/home/,
+            name: "（船长）店铺会员礼包-JK",
+            trans: [{
+                ori: "shopId",
+                redi: "jd_shopCollectGiftId"//船长
+            }]
+        },  
+        {
+            keyword: /shop.m.jd.com\/\?/,
+            name: "关注有礼-JK",
+            trans: [{
+                ori: "shopId",
+                redi: "jd_shopFollowGiftId"//船长
+            }]
         },
         {
-            keyword: /interactsaas\/\?activityType=10047/,
-            name: 'lzkj_interactsaas盖楼有礼【Doraemon】',
-            trans: [
-                {
-                    ori: 'activityId',
-                    redi: 'jd_lzkj_interactsaas_glyl_Ids',
-                },
-            ],
+            keyword: /lzdz1-isv\.isvjd\.com\/dingzhi\/shop\/league\/activity/,
+            name: "（船长）通用开卡-shopLeague系列",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_shopLeagueId"//船长
+            }]
         },
+        {
+            keyword: /lzdz1-isv\.isvjcloud\.com\/dingzhi\/joinCommon\/activity/,
+            name: "（船长）通用开卡-joinCommon系列",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_joinCommonId"//船长
+            }]
+        },
+        {
+            keyword: /(lzkj-isv.isvj(clou)?d.com\/wxShopGift)|(cjhy-isv\.isvjcloud\.com\/wxShopGift)/,
+            name: "（船长）店铺特效关注有礼-JK",
+            trans: [{
+                ori: "activityId",
+                redi: "jd_wxShopGiftId"//船长
+            }]
+        },
+        {
+            keyword: /pro(dev)?\.m\.jd\.com\/mall\/active\/dVF7gQUVKyUcuSsVhuya5d2XD4F/,
+            name: "【YYDS】火箭邀请",
+            trans: [{
+                ori: "code",
+                redi: "prodevactCode"
+            }]
+        },
+       
     ];
 }
 
