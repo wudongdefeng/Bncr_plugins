@@ -16,9 +16,12 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          curl -O https://raw.githubusercontent.com/Yuheng0101/Bncr_plugins/main/影视搜索.js
+          git clone https://github.com/Yuheng0101/Bncr_plugins.git ~/yuheng
+          cp ~/yuheng/影视搜索.js .
+          cp ~/yuheng/汇总.js .
+          rm -rf ~/yuheng
+          git clone https://github.com/RedLightsDistrict/Bncr_plugins.git ~/redlight
           
-          curl -O https://raw.githubusercontent.com/Yuheng0101/Bncr_plugins/main/汇总.js
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/Bncr_SPY.js
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/京东口令解析url.js
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/奶酪.js
