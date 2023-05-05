@@ -14,6 +14,8 @@ jobs:
 
       - name: Push to master
         run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           curl -O https://raw.githubusercontent.com/Yuheng0101/Bncr_plugins/main/影视搜索.js || echo "已删除"
           curl -O https://raw.githubusercontent.com/Yuheng0101/Bncr_plugins/main/汇总.js || echo "已删除"
           curl -O https://raw.githubusercontent.com/Yuheng0101/Bncr_plugins/main/汇总.js || echo "已删除"
@@ -24,8 +26,9 @@ jobs:
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/消息转发.js || echo "已删除"
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/登录.js || echo "已删除"
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/自建sign.js || echo "已删除"
-          ls
+          
           cd ./mod
+          ls
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/AmQlMod.js || echo "已删除"
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/AmTool.js || echo "已删除"
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/CryptoJS.js || echo "已删除"
@@ -33,10 +36,7 @@ jobs:
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyValueChange.js || echo "已删除"
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyHandleMsg.js || echo "已删除"
           curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyHandleMsg.js || echo "已删除"
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyConfig.js || echo "已删除" 
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          
+          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyConfig.js || echo "已删除"                    
           git add .
           git commit -m "$time" || echo "no change"
           git push -u origin main
