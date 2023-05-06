@@ -21,19 +21,18 @@ jobs:
           cp ~/yuheng/汇总.js .
           rm -rf ~/yuheng
           git clone https://github.com/RedLightsDistrict/Bncr_plugins.git ~/redlight
-          
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/Bncr_SPY.js
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/京东口令解析url.js
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/奶酪.js
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/查询.js
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/消息转发.js
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/登录.js
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/自建sign.js          
+          cp ~/redlight/Bncr_SPY.js .
+          cp ~/redlight/京东口令解析url.js .
+          cp ~/redlight/奶酪.js .
+          cp ~/redlight/查询.js .
+          cp ~/redlight/消息转发.js .
+          cp ~/redlight/登录.js .
+          cp ~/redlight/自建sign.js .
           cd ./mod
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/AmQlMod.js || echo "已删除"
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/AmTool.js || echo "已删除"
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/CryptoJS.js || echo "已删除"
-          curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/USER_AGENTS.js || echo "已删除"
+          cp ~/redlight/mod/AmQlMod.js .
+          cp ~/redlight/mod/AmTool.js .
+          cp ~/redlight/mod/CryptoJS.js .
+          cp ~/redlight/mod/USER_AGENTS.js .
           #curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyValueChange.js || echo "已删除"
           #curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyHandleMsg.js || echo "已删除"
           #curl -O https://raw.githubusercontent.com/RedLightsDistrict/Bncr_plugins/main/mod/SpyHandleMsg.js || echo "已删除"
