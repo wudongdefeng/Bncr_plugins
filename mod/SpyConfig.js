@@ -28,7 +28,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_follow_shop.js',
             ListenEnv: ['M_FOLLOW_SHOP_ARGV'],
             SetEnv: {
-                'M_FOLLOW_SHOP_ARGV: 'M_FOLLOW_SHOP_ARGV',
+                M_FOLLOW_SHOP_ARGV: 'M_FOLLOW_SHOP_ARGV',
             },
             TimeOut: 300,
             Interval: 2,
@@ -40,7 +40,7 @@ let RspyList = {
             Script: 'HarbourJ/jd_wxCollectionActivity.py',
             ListenEnv: ['jd_wxCollectionActivity_activityUrl', 'jd_wxCollectionActivityUrl'],
             SetEnv: {
-                'jd_wxCollectionActivityUrl: 'jd_wxCollectionActivity_activityUrl',
+                jd_wxCollectionActivityUrl: 'jd_wxCollectionActivity_activityUrl',
             },
             TimeOut: 300,
             Interval: 2,
@@ -52,7 +52,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_wx_addCart.js',
             ListenEnv: ['M_WX_ADD_CART_URL', 'M_WX_ADD_CART_URL'],
             SetEnv: {
-                'M_WX_ADD_CART_URL: 'M_WX_ADD_CART_URL',
+                M_WX_ADD_CART_URL: 'M_WX_ADD_CART_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -64,7 +64,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_wx_centerDraw.js',
             ListenEnv: ['M_WX_CENTER_DRAW_URL'],
             SetEnv: {
-                'M_WX_CENTER_DRAW_URL: 'M_WX_CENTER_DRAW_URL',
+                M_WX_CENTER_DRAW_URL: 'M_WX_CENTER_DRAW_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -76,7 +76,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_lzkj_loreal_draw.js',
             ListenEnv: ['jd_lzkj_loreal_draw_url'],
             SetEnv: {
-                'jd_lzkj_loreal_draw_url: 'jd_lzkj_loreal_draw_url',
+                jd_lzkj_loreal_draw_url: 'jd_lzkj_loreal_draw_url',
             },
             TimeOut: 300,
             Interval: 2,
@@ -88,7 +88,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_wx_buildDraw.js',
             ListenEnv: ['M_WX_BUILD_DRAW_URL'],
             SetEnv: {
-                'M_WX_BUILD_DRAW_URL: 'M_WX_BUILD_DRAW_URL',
+                M_WX_BUILD_DRAW_URL: 'M_WX_BUILD_DRAW_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -100,7 +100,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_fans_redPackt.js',
             ListenEnv: ['M_FANS_RED_PACKET_URL'],
             SetEnv: {
-                'M_FANS_RED_PACKET_URL: 'M_FANS_RED_PACKET_URL',
+                M_FANS_RED_PACKET_URL: 'M_FANS_RED_PACKET_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -112,7 +112,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_wx_knowledge.js',
             ListenEnv: ['M_WX_KNOWLEDGE_URL'],
             SetEnv: {
-                'M_WX_KNOWLEDGE_URL: 'M_WX_KNOWLEDGE_URL',
+                M_WX_KNOWLEDGE_URL: 'M_WX_KNOWLEDGE_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -124,7 +124,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_wx_share.js',
             ListenEnv: ['M_WX_SHARE_URL'],
             SetEnv: {
-                'M_WX_SHARE_URL: 'M_WX_SHARE_URL',
+                M_WX_SHARE_URL: 'M_WX_SHARE_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -136,7 +136,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_wx_completeDraw.js',
             ListenEnv: ['M_WX_COMPLETE_DRAW_URL'],
             SetEnv: {
-                'M_WX_COMPLETE_DRAW_URL: 'M_WX_COMPLETE_DRAW_URL',
+                M_WX_COMPLETE_DRAW_URL: 'M_WX_COMPLETE_DRAW_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -148,7 +148,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_wx_followDraw.js',
             ListenEnv: ['jd_lzkjInteractFollowUrl', 'M_WX_FOLLOW_DRAW_URL'],
             SetEnv: {
-                'M_WX_FOLLOW_DRAW_URL: 'jd_lzkjInteractFollowUrl',
+                M_WX_FOLLOW_DRAW_URL: 'jd_lzkjInteractFollowUrl',
             },
             TimeOut: 300,
             Interval: 2,
@@ -160,7 +160,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_wx_levelBirth.js',
             ListenEnv: ['M_WX_LEVEL_BIRTH_URL'],
             SetEnv: {
-                'M_WX_LEVEL_BIRTH_URL: 'M_WX_LEVEL_BIRTH_URL',
+                M_WX_LEVEL_BIRTH_URL: 'M_WX_LEVEL_BIRTH_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -172,7 +172,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_wx_luckDraw.js',
             ListenEnv: ['LUCK_DRAW_URL', 'M_WX_LUCK_DRAW_URL'],
             SetEnv: {
-                'M_WX_LUCK_DRAW_URL: 'LUCK_DRAW_URL',
+                M_WX_LUCK_DRAW_URL: 'LUCK_DRAW_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -184,7 +184,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_wx_game.js',
             ListenEnv: ['M_WX_GAME_URL'],
             SetEnv: {
-                'M_WX_GAME_URL: 'M_WX_GAME_URL',
+                M_WX_GAME_URL: 'M_WX_GAME_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -196,7 +196,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_wx_shopGift.js',
             ListenEnv: ['M_WX_SHOP_GIFT_URL'],
             SetEnv: {
-                'M_WX_SHOP_GIFT_URL: 'M_WX_SHOP_GIFT_URL',
+                M_WX_SHOP_GIFT_URL: 'M_WX_SHOP_GIFT_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -208,7 +208,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_faker_wind_computer.js',
             ListenEnv: ['computer_activityIdList'],
             SetEnv: {
-                'computer_activityIdList: 'computer_activityIdList',
+                computer_activityIdList: 'computer_activityIdList',
             },
             TimeOut: 300,
             Interval: 2,
@@ -220,7 +220,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_wxCartKoi.js',
             ListenEnv: ['jd_wxCartKoi_activityId'],
             SetEnv: {
-                'jd_wxCartKoi_activityId: 'jd_wxCartKoi_activityId',
+                jd_wxCartKoi_activityId: 'jd_wxCartKoi_activityId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -232,7 +232,7 @@ let RspyList = {
             Script: 'HarbourJ/jd_lzkjInteract.py',
             ListenEnv: ['jd_lzkjInteractUrl'],
             SetEnv: {
-                'jd_lzkjInteractUrl: 'jd_lzkjInteractUrl',
+                jd_lzkjInteractUrl: 'jd_lzkjInteractUrl',
             },
             TimeOut: 300,
             Interval: 2,
@@ -244,7 +244,7 @@ let RspyList = {
             Script: 'HarbourJ/jd_wxShopFollow.py',
             ListenEnv: ['jd_lzkj_wxShopFollowActivity_activityId', 'jd_wxShopFollowId'],
             SetEnv: {
-                'jd_wxShopFollowId: 'jd_lzkj_wxShopFollowActivity_activityId',
+                jd_wxShopFollowId: 'jd_lzkj_wxShopFollowActivity_activityId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -256,7 +256,7 @@ let RspyList = {
             Script: 'HarbourJ/jd_wxShopGift.py',
             ListenEnv: ['jd_wxShopGiftId'],
             SetEnv: {
-                'jd_wxShopGiftId: 'jd_wxShopGiftId',
+                jd_wxShopGiftId: 'jd_wxShopGiftId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -268,7 +268,7 @@ let RspyList = {
             Script: 'HarbourJ/jd_wdz.py',
             ListenEnv: ['WDZactivityId', 'jd_cjhydz_microDz_Id', 'jd_wdz_activityId'],
             SetEnv: {
-                'jd_wdz_activityId: 'WDZactivityId',
+                jd_wdz_activityId: 'WDZactivityId',
 		'jd_wdz_activityId: 'jd_cjhydz_microDz_Id',
             },
             TimeOut: 300,
@@ -281,7 +281,7 @@ let RspyList = {
             Script: 'jd_team.js',
             ListenEnv: ['TEAM_URL'],
             SetEnv: {
-                'TEAM_URL: 'TEAM_URL',
+                TEAM_URL: 'TEAM_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -293,7 +293,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_drawCenter.js',
             ListenEnv: ['jd_drawCenter_activityId'],
             SetEnv: {
-                'jd_drawCenter_activityId: 'jd_drawCenter_activityId',
+                jd_drawCenter_activityId: 'jd_drawCenter_activityId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -305,7 +305,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_lzkj_loreal_invite.js',
             ListenEnv: ['jd_lzkjInteract', 'M_INTERACT_INVITE_URL', 'jd_lzkj_loreal_invite_url'],
             SetEnv: {
-                'jd_lzkj_loreal_invite_url: 'jd_lzkjInteract',
+                jd_lzkj_loreal_invite_url: 'jd_lzkjInteract',
 		'jd_lzkj_loreal_invite_url: 'M_INTERACT_INVITE_URL',
             },
             TimeOut: 300,
@@ -318,7 +318,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_lottery.js',
             ListenEnv: ['JD_Lottery'],
             SetEnv: {
-                'JD_Lottery: 'JD_Lottery',
+                jd_Lottery: 'JD_Lottery',
             },
             TimeOut: 300,
             Interval: 2,
@@ -330,7 +330,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_lzkj_loreal_draw.js',
             ListenEnv: ['jd_lzkj_loreal_draw.js'],
             SetEnv: {
-                'jd_lzkj_loreal_draw.js: 'jd_lzkj_loreal_draw.js',
+                jd_lzkj_loreal_draw.js: 'jd_lzkj_loreal_draw.js',
             },
             TimeOut: 300,
             Interval: 2,
@@ -342,7 +342,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_lzkj_loreal_cart.js',
             ListenEnv: ['jd_lzkj_loreal_cart_url'],
             SetEnv: {
-                'jd_lzkj_loreal_cart_url: 'jd_lzkj_loreal_cart_url',
+                jd_lzkj_loreal_cart_url: 'jd_lzkj_loreal_cart_url',
             },
             TimeOut: 300,
             Interval: 2,
@@ -354,7 +354,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_lzkj_loreal_followShop.js',
             ListenEnv: ['jd_lzkj_loreal_followShop_url'],
             SetEnv: {
-                'jd_lzkj_loreal_followShop_url: 'jd_lzkj_loreal_followShop_url',
+                jd_lzkj_loreal_followShop_url: 'jd_lzkj_loreal_followShop_url',
             },
             TimeOut: 300,
             Interval: 2,
@@ -366,7 +366,7 @@ let RspyList = {
             Script: 'jd_sevenday_url.js',
             ListenEnv: ['M_WX_SHOP_SIGN_URL', 'jd_sevenDay_activityUrl'],
             SetEnv: {
-                'jd_sevenDay_activityUrl: 'M_WX_SHOP_SIGN_URL',
+                jd_sevenDay_activityUrl: 'M_WX_SHOP_SIGN_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -378,7 +378,7 @@ let RspyList = {
             Script: 'HarbourJ/jd_wxBulidActivity.py',
             ListenEnv: ['jd_lzkj_wxBuildActivity_activityId', 'jd_wxBulidActivityId'],
             SetEnv: {
-                'jd_wxBulidActivityId: 'jd_lzkj_wxBuildActivity_activityId',
+                jd_wxBulidActivityId: 'jd_lzkj_wxBuildActivity_activityId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -390,7 +390,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_wxUnPackingActivity.js',
             ListenEnv: ['jd_wxUnPackingActivity_activityId'],
             SetEnv: {
-                'jd_wxUnPackingActivity_activityId: 'jd_wxUnPackingActivity_activityId',
+                jd_wxUnPackingActivity_activityId: 'jd_wxUnPackingActivity_activityId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -402,7 +402,7 @@ let RspyList = {
             Script: 'HarbourJ/jd_shopFollowGift.py',
             ListenEnv: ['jd_shopFollowGiftId'],
             SetEnv: {
-                'jd_shopFollowGiftId: 'jd_shopFollowGiftId',
+                jd_shopFollowGiftId: 'jd_shopFollowGiftId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -414,7 +414,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_txzj_cart_item.js',
             ListenEnv: ['jd_cart_item_activityUrl'],
             SetEnv: {
-                'jd_cart_item_activityUrl: 'jd_cart_item_activityUrl',
+                jd_cart_item_activityUrl: 'jd_cart_item_activityUrl',
             },
             TimeOut: 300,
             Interval: 2,
@@ -426,7 +426,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_txzj_lottery.js',
             ListenEnv: ['jd_lottery_activityUrl'],
             SetEnv: {
-                'jd_lottery_activityUrl: 'jd_lottery_activityUrl',
+                jd_lottery_activityUrl: 'jd_lottery_activityUrl',
             },
             TimeOut: 300,
             Interval: 2,
@@ -438,7 +438,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_txzj_collect_shop.js',
             ListenEnv: ['jd_collect_shop_activityUrl'],
             SetEnv: {
-                'jd_collect_shop_activityUrl: 'jd_collect_shop_activityUrl',
+                jd_collect_shop_activityUrl: 'jd_collect_shop_activityUrl',
             },
             TimeOut: 300,
             Interval: 2,
@@ -450,7 +450,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_txzj_collect_item.js',
             ListenEnv: ['jd_collect_item_activityUrl'],
             SetEnv: {
-                'jd_collect_item_activityUrl: 'jd_collect_item_activityUrl',
+                jd_collect_item_activityUrl: 'jd_collect_item_activityUrl',
             },
             TimeOut: 300,
             Interval: 2,
@@ -462,7 +462,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_txzj_sign_in.js',
             ListenEnv: ['jd_txzj_sign_in_id'],
             SetEnv: {
-                'jd_txzj_sign_in_id: 'jd_txzj_sign_in_id',
+                jd_txzj_sign_in_id: 'jd_txzj_sign_in_id',
             },
             TimeOut: 300,
             Interval: 2,
@@ -474,7 +474,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_wxCollectCard.js',
             ListenEnv: ['jd_wxCollectCard_activityId'],
             SetEnv: {
-                'jd_wxCollectCard_activityId: 'jd_wxCollectCard_activityId',
+                jd_wxCollectCard_activityId: 'jd_wxCollectCard_activityId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -486,7 +486,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_wxFansInterActionActivity.js',
             ListenEnv: ['jd_wxFansInterActionActivity_activityId'],
             SetEnv: {
-                'jd_wxFansInterActionActivity_activityId: 'jd_wxFansInterActionActivity_activityId',
+                jd_wxFansInterActionActivity_activityId: 'jd_wxFansInterActionActivity_activityId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -498,7 +498,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_wxSecond.js',
             ListenEnv: ['jd_wxSecond_activityId'],
             SetEnv: {
-                'jd_wxSecond_activityId: 'jd_wxSecond_activityId',
+                jd_wxSecond_activityId: 'jd_wxSecond_activityId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -510,7 +510,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_wxShareActivity.js',
             ListenEnv: ['jd_fxyl_activityId', 'SHARE_ACTIVITY_ID', 'jd_wxShareActivity_activityId'],
             SetEnv: {
-                'jd_wxShareActivity_activityId: 'jd_fxyl_activityId',
+                jd_wxShareActivity_activityId: 'jd_fxyl_activityId',
 		'jd_wxShareActivity_activityId: 'SHARE_ACTIVITY_ID',
             },
             TimeOut: 300,
@@ -523,9 +523,9 @@ let RspyList = {
             Script: 'HarbourJ/jd_inviteFriendsGift.py',
             ListenEnv: ['yhyauthorCode', 'prodevactCode', 'invite_code', 'jd_inv_authorCode'],
             SetEnv: {
-                'jd_inv_authorCode: 'yhyauthorCode',
-		'jd_inv_authorCode: 'prodevactCode',
-		'jd_inv_authorCode: 'invite_code',
+                jd_inv_authorCode: 'yhyauthorCode',
+                jd_inv_authorCode: 'prodevactCode',
+                jd_inv_authorCode: 'invite_code',
             },
             TimeOut: 300,
             Interval: 2,
@@ -537,7 +537,7 @@ let RspyList = {
             Script: 'HarbourJ/jd_jinggengInvite.py',
             ListenEnv: ['jinggengInviteJoin'],
             SetEnv: {
-                'jinggengInviteJoin: 'jinggengInviteJoin',
+                jinggengInviteJoin: 'jinggengInviteJoin',
             },
             TimeOut: 300,
             Interval: 2,
@@ -549,7 +549,7 @@ let RspyList = {
             Script: 'HarbourJ/jd_joinCommon_opencard.py',
             ListenEnv: ['jd_joinCommonId'],
             SetEnv: {
-                'jd_joinCommonId: 'jd_joinCommonId',
+                jd_joinCommonId: 'jd_joinCommonId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -561,7 +561,7 @@ let RspyList = {
             Script: 'HarbourJ/jd_shopLeague_opencard.py',
             ListenEnv: ['jd_shopLeagueId'],
             SetEnv: {
-                'jd_shopLeagueId: 'jd_shopLeagueId',
+                jd_shopLeagueId: 'jd_shopLeagueId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -573,7 +573,7 @@ let RspyList = {
             Script: 'HarbourJ/jd_dpcj.py',
             ListenEnv: ['DPCJID'],
             SetEnv: {
-                'DPCJID: 'DPCJID',
+                DPCJID: 'DPCJID',
             },
             TimeOut: 300,
             Interval: 2,
@@ -585,7 +585,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_completeInfoActivity.js',
             ListenEnv: ['jd_cjhy_completeInfoActivity_Ids', 'jd_completeInfoActivity_activityId'],
             SetEnv: {
-                'jd_completeInfoActivity_activityId: 'jd_cjhy_completeInfoActivity_Ids',
+                jd_completeInfoActivity_activityId: 'jd_cjhy_completeInfoActivity_Ids',
             },
             TimeOut: 300,
             Interval: 2,
@@ -597,7 +597,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_daily.js',
             ListenEnv: ['jd_cjhy_daily_ids', 'jd_cjdaily_activityId'],
             SetEnv: {
-                'jd_cjdaily_activityId: 'jd_cjhy_daily_ids',
+                jd_cjdaily_activityId: 'jd_cjhy_daily_ids',
             },
             TimeOut: 300,
             Interval: 2,
@@ -609,7 +609,7 @@ let RspyList = {
             Script: 'jd_addAndFollow.js',
             ListenEnv: ['ADD_FOLLOW_URL'],
             SetEnv: {
-                'ADD_FOLLOW_URL: 'ADD_FOLLOW_URL',
+                ADD_FOLLOW_URL: 'ADD_FOLLOW_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -621,7 +621,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_categoryUnion.js',
             ListenEnv: ['jd_categoryUnion_activityId'],
             SetEnv: {
-                'jd_categoryUnion_activityId: 'jd_categoryUnion_activityId',
+                jd_categoryUnion_activityId: 'jd_categoryUnion_activityId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -658,9 +658,9 @@ let RspyList = {
     ListMode: 2,
     /* 运行日志输出位置,例如错误运行日志/任务运行成功等日志,只能设置1个 */
     runLogsInfo: {
-        platform: 'tgBot', //发送平台
-        toGroupOrUser: 'groupId', //通知类型,个人userId //群groupId
-        Id: '-1001744932665', //个人id 或群id
+        platform: 'HumanTG', //发送平台
+        toGroupOrUser: 'userId', //通知类型,个人userId //群groupId
+        Id: '5907593728', //个人id 或群id
     },
     /* 静默后监控结果输出位置  可填多个*/
     TabooLogsInfo: [
@@ -670,9 +670,9 @@ let RspyList = {
         // 	Id: "-1001744932665"
         // },
          {
-             platform: 'tgBot', //发送平台
-             toGroupOrUser: 'groupId', //通知类型,个人userId //群groupId
-             Id: '-1001704263871', //个人id 或群id
+             platform: 'HumanTG', //发送平台
+             toGroupOrUser: 'userId', //通知类型,个人userId //群groupId
+             Id: '5907593728', //个人id 或群id
          },
     ],
 };
