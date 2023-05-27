@@ -23,7 +23,7 @@ let RspyList = {
             Disable: false,
         },
 		//以下给出几个示例
-                {
+        {
             Name: 'M关注有礼',
             Script: 'wudongdefeng_tem-update/m_jd_follow_shop.js',
             ListenEnv: ['M_FOLLOW_SHOP_ARGV'],
