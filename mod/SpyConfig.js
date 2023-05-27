@@ -269,7 +269,7 @@ let RspyList = {
             ListenEnv: ['WDZactivityId', 'jd_cjhydz_microDz_Id', 'jd_wdz_activityId'],
             SetEnv: {
                 'jd_wdz_activityId: 'WDZactivityId',
-				'jd_wdz_activityId: 'jd_cjhydz_microDz_Id',
+		'jd_wdz_activityId: 'jd_cjhydz_microDz_Id',
             },
             TimeOut: 300,
             Interval: 2,
@@ -306,7 +306,7 @@ let RspyList = {
             ListenEnv: ['jd_lzkjInteract', 'M_INTERACT_INVITE_URL', 'jd_lzkj_loreal_invite_url'],
             SetEnv: {
                 'jd_lzkj_loreal_invite_url: 'jd_lzkjInteract',
-				'jd_lzkj_loreal_invite_url: 'M_INTERACT_INVITE_URL',
+		'jd_lzkj_loreal_invite_url: 'M_INTERACT_INVITE_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -511,7 +511,7 @@ let RspyList = {
             ListenEnv: ['jd_fxyl_activityId', 'SHARE_ACTIVITY_ID', 'jd_wxShareActivity_activityId'],
             SetEnv: {
                 'jd_wxShareActivity_activityId: 'jd_fxyl_activityId',
-				'jd_wxShareActivity_activityId: 'SHARE_ACTIVITY_ID',
+		'jd_wxShareActivity_activityId: 'SHARE_ACTIVITY_ID',
             },
             TimeOut: 300,
             Interval: 2,
@@ -524,8 +524,8 @@ let RspyList = {
             ListenEnv: ['yhyauthorCode', 'prodevactCode', 'invite_code', 'jd_inv_authorCode'],
             SetEnv: {
                 'jd_inv_authorCode: 'yhyauthorCode',
-				'jd_inv_authorCode: 'prodevactCode',
-				'jd_inv_authorCode: 'invite_code',
+		'jd_inv_authorCode: 'prodevactCode',
+		'jd_inv_authorCode: 'invite_code',
             },
             TimeOut: 300,
             Interval: 2,
