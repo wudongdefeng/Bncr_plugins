@@ -50,9 +50,10 @@ let RspyList = {
         {
             Name: 'M加购',
             Script: 'wudongdefeng_tem-update/m_jd_wx_addCart.js',
-            ListenEnv: ['M_WX_ADD_CART_URL', 'M_WX_ADD_CART_URL'],
+            ListenEnv: ['M_WX_ADD_CART_URL', 'jd_wxCollectionActivity_activityUrl', 'jd_wxCollectionActivityUrl'],
             SetEnv: {
-                M_WX_ADD_CART_URL: 'M_WX_ADD_CART_URL',
+                jd_wxCollectionActivity_activityUrl: 'M_WX_ADD_CART_URL',
+		jd_wxCollectionActivityUrl: 'M_WX_ADD_CART_URL',    
             },
             TimeOut: 300,
             Interval: 2,
@@ -148,7 +149,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_wx_followDraw.js',
             ListenEnv: ['jd_lzkjInteractFollowUrl', 'M_WX_FOLLOW_DRAW_URL'],
             SetEnv: {
-                M_WX_FOLLOW_DRAW_URL: 'jd_lzkjInteractFollowUrl',
+                jd_lzkjInteractFollowUrl: 'M_WX_FOLLOW_DRAW_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -172,7 +173,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/m_jd_wx_luckDraw.js',
             ListenEnv: ['LUCK_DRAW_URL', 'M_WX_LUCK_DRAW_URL'],
             SetEnv: {
-                M_WX_LUCK_DRAW_URL: 'LUCK_DRAW_URL',
+                LUCK_DRAW_URL: 'M_WX_LUCK_DRAW_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -244,7 +245,7 @@ let RspyList = {
             Script: 'HarbourJ/jd_wxShopFollow.py',
             ListenEnv: ['jd_lzkj_wxShopFollowActivity_activityId', 'jd_wxShopFollowId'],
             SetEnv: {
-                jd_wxShopFollowId: 'jd_lzkj_wxShopFollowActivity_activityId',
+                jd_lzkj_wxShopFollowActivity_activityId: 'jd_wxShopFollowId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -268,8 +269,8 @@ let RspyList = {
             Script: 'HarbourJ/jd_wdz.py',
             ListenEnv: ['WDZactivityId', 'jd_cjhydz_microDz_Id', 'jd_wdz_activityId'],
             SetEnv: {
-                jd_wdz_activityId: 'WDZactivityId',
-		'jd_wdz_activityId: 'jd_cjhydz_microDz_Id',
+                WDZactivityId: 'jd_wdz_activityId',
+		jd_cjhydz_microDz_Id: 'jd_wdz_activityId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -279,9 +280,9 @@ let RspyList = {
         {
             Name: 'M组队瓜分',
             Script: 'jd_team.js',
-            ListenEnv: ['TEAM_URL'],
+            ListenEnv: ['TEAM_URL', 'M_WX_TEAM_URL'],
             SetEnv: {
-                TEAM_URL: 'TEAM_URL',
+                TEAM_URL: 'M_WX_TEAM_URL',
             },
             TimeOut: 300,
             Interval: 2,
@@ -305,8 +306,8 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_lzkj_loreal_invite.js',
             ListenEnv: ['jd_lzkjInteract', 'M_INTERACT_INVITE_URL', 'jd_lzkj_loreal_invite_url'],
             SetEnv: {
-                jd_lzkj_loreal_invite_url: 'jd_lzkjInteract',
-		'jd_lzkj_loreal_invite_url: 'M_INTERACT_INVITE_URL',
+                jd_lzkjInteract: 'jd_lzkj_loreal_invite_url',
+		M_INTERACT_INVITE_URL: 'jd_lzkj_loreal_invite_url',
             },
             TimeOut: 300,
             Interval: 2,
@@ -328,9 +329,9 @@ let RspyList = {
         {
             Name: 'kingran-店铺抽奖（超级无线欧莱雅）',
             Script: 'wudongdefeng_tem-update/jd_lzkj_loreal_draw.js',
-            ListenEnv: ['jd_lzkj_loreal_draw.js'],
+            ListenEnv: ['jd_lzkj_loreal_draw_url'],
             SetEnv: {
-                jd_lzkj_loreal_draw.js: 'jd_lzkj_loreal_draw.js',
+                jd_lzkj_loreal_draw_url: 'jd_lzkj_loreal_draw_url',
             },
             TimeOut: 300,
             Interval: 2,
@@ -378,7 +379,7 @@ let RspyList = {
             Script: 'HarbourJ/jd_wxBulidActivity.py',
             ListenEnv: ['jd_lzkj_wxBuildActivity_activityId', 'jd_wxBulidActivityId'],
             SetEnv: {
-                jd_wxBulidActivityId: 'jd_lzkj_wxBuildActivity_activityId',
+                jd_lzkj_wxBuildActivity_activityId: 'jd_wxBulidActivityId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -510,8 +511,8 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_wxShareActivity.js',
             ListenEnv: ['jd_fxyl_activityId', 'SHARE_ACTIVITY_ID', 'jd_wxShareActivity_activityId'],
             SetEnv: {
-                jd_wxShareActivity_activityId: 'jd_fxyl_activityId',
-		'jd_wxShareActivity_activityId: 'SHARE_ACTIVITY_ID',
+                jd_fxyl_activityId: 'jd_wxShareActivity_activityId',
+		SHARE_ACTIVITY_ID: 'jd_wxShareActivity_activityId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -523,9 +524,9 @@ let RspyList = {
             Script: 'HarbourJ/jd_inviteFriendsGift.py',
             ListenEnv: ['yhyauthorCode', 'prodevactCode', 'invite_code', 'jd_inv_authorCode'],
             SetEnv: {
-                jd_inv_authorCode: 'yhyauthorCode',
-                jd_inv_authorCode: 'prodevactCode',
-                jd_inv_authorCode: 'invite_code',
+                yhyauthorCode: 'jd_inv_authorCode',
+                prodevactCode: 'jd_inv_authorCode',
+                invite_code: 'jd_inv_authorCode',
             },
             TimeOut: 300,
             Interval: 2,
@@ -585,7 +586,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_completeInfoActivity.js',
             ListenEnv: ['jd_cjhy_completeInfoActivity_Ids', 'jd_completeInfoActivity_activityId'],
             SetEnv: {
-                jd_completeInfoActivity_activityId: 'jd_cjhy_completeInfoActivity_Ids',
+                jd_cjhy_completeInfoActivity_Ids: 'jd_completeInfoActivity_activityId',
             },
             TimeOut: 300,
             Interval: 2,
@@ -597,7 +598,7 @@ let RspyList = {
             Script: 'wudongdefeng_tem-update/jd_daily.js',
             ListenEnv: ['jd_cjhy_daily_ids', 'jd_cjdaily_activityId'],
             SetEnv: {
-                jd_cjdaily_activityId: 'jd_cjhy_daily_ids',
+                jd_cjhy_daily_ids: 'jd_cjdaily_activityId',
             },
             TimeOut: 300,
             Interval: 2,
