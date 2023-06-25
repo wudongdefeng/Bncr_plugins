@@ -208,6 +208,22 @@ function ListS() {
             }]
         },
         {
+            keyword: "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=10054/",
+            name: "上上签抽奖interactsaas-KR",
+            trans: [{
+                ori: "-1",
+                redi: "jd_lzkj_loreal_upperSign_url"//kr
+            }]
+        },
+        {
+            keyword: "https://lzkj-isv.isvjcloud.com/prod/cc/interactsaas/index?activityType=(10023|10040)/",
+            name: "签到有礼LOREAL-KR",
+            trans: [{
+                ori: "-1",
+                redi: "jd_lzkj_loreal_daySign_url"//kr
+            }]
+        },
+        {
             keyword: "https://txzj-isv.isvjcloud.com/lottery",
             name: "收藏大师-幸运抽奖",
             trans: [{
